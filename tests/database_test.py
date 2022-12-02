@@ -14,7 +14,7 @@ class TestDataBase(unittest.TestCase):
     def test_ingredient_name(self):
         self.assertEqual('Cheese', self.ingredient.name)
     
-    def test_ingredietn_amount(self):
+    def test_ingredient_amount(self):
         self.assertEqual(20, self.ingredient.amount)
         
 
