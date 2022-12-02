@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    this it the recipes page
+   {% for recipe in recipes %}
+   <p>{{recipe.name}}</p>
+    
+   {% endfor %}
+{% endblock %}

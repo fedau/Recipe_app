@@ -11,7 +11,7 @@ def save(recipe):
     return recipe
 
 
-def select_all(recipe):
+def select_all():
     recipes = []
     sql = "SELECT * FROM recipes"
     results = run_sql(sql)
