@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta&family=Roboto:ital,wght@0,100;1,400&family=Rubik&display=swap');
+
+
+:root{
+    --blue: #222e44;
+    --whiteish: #f7efef;
+    --pink: #E8C4C4;
+    --pinklight:#edd0d0;
+    --peachy: #CE7777;
+    --lighterblue: #556177;
+    --lightblue: #404e66;
+
+}
+
+body{
+    background: var(--whiteish);
+    font-family: "Rubik", sans-serif;
+}
+
+main {
+    padding: 60px 1rem;
+    max-width: 1200px;
+    margin: auto;
+}
+/* HEADER NAVIGATION */
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--blue);
+    border-radius: 16px;
+    align-items: center;
+    width: 100%;
+    margin: 0%;
+    padding: 0;
+}
+nav ul {
+    list-style-type: none;
+      display: flex;
+    }
+
+nav ul li a {
+    border-radius: 16px;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    background-color: var(--whiteish);
+    border: 2px, black;
+    margin: 5px;
+  }
+
+nav ul li  :hover{
+    padding: 10px;
+    text-decoration: none;
+    color: var(--blue);
+    background-color: var(--pink);
+       
+     }
+
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/* RECIPE CARD STYLING  */
+.recipe-wrapper{    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 16px;
+    /* width: 600px;
+    height: 300px; */
+    /* flex-grow: 1;
+    flex-basis: 0; */
+}
+.recipe-wrapper :hover{    
+    background-color: var(--pinklight);
+
+}
+
+.recipe-container {
+    flex: 25%;
+    padding: 1rem;
+    border: 1px solid #D5D9EB;
+    display: block;
+    border-radius: 16px;
+    text-decoration: none;
+    /* flex-basis: 21%; */
+    flex-grow: 0;
+
+ }
+
+ .recipe-container>div {
+    gap: 16px;
+}
+
+.recipe-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--blue);
+}
+.recipe-description, .recipe-cooking_time{
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--lighterblue);
+}
+
+.fa-clock-o{ 
+    padding: 5px;
+}
+
+.recipe-image img{
+    height: auto; 
+    max-width: 100%;
+}
+
+
+/* FILTER STYLING */
+/* .filter-wrapper{
+    min-width: 100px;
+    max-width: 100px;
+    background: red;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    width: 100px;
+    padding: 1rem;
+    border: 1px solid #D5D9EB;
+    gap: 16px; 
+ }
+.filter-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 5%;
+    flex-grow: 0;
+    margin-right: auto;
+}
+
+.label-input{
+    display: flex;
+    flex-direction: row; 
+}    
+    */

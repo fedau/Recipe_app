@@ -2,8 +2,35 @@
 
 {% block content %}
     this it the recipes page
-   {% for recipe in recipes %}
-   <p>{{recipe.name}}</p>
-    
-   {% endfor %}
-{% endblock %}
+
+<!-- <section class="filter-wrapper">
+    <form action="post" class="filter-form">
+        <div class="label-input">
+        <label for="vegeterian">vegeterian</label>
+        <input type="checkbox" id="vegetarian" value="vegetarian" name="vegetarian">
+        </div>
+        <div class="label-input">
+        <label for="vegan">vegan</label>
+        <input type="checkbox" id="vegan" value="vegan" name="vegan">
+        </div>
+        <div class="label-input">
+        <label for="dessert">dessert</label>
+        <input type="checkbox" id="dessert" value="dessert" name="dessert">
+        </div>
+    </form>
+</section> -->
+
+    <section class="recipe-wrapper">
+        {% for recipe in recipes %}
+            <a class="recipe-container" href="WRITE RECIPE ID IN HERE TO GO TO SINGLE RECIPE">
+                <div class="card-content">
+                    <div class="recipe-image"> <img src="{{recipe.image}}" alt="image not loaded"></div>
+                    <div class="recipe-name">{{recipe.name}}</div>
+                    <div class="recipe-description">{{recipe.description}} </div>
+                    <div class="recipe-cooking_time"> <i class="fa fa-clock-o fa-2px"></i>{{recipe.cooking_time}}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </section>
+{% endblock %}    
+
