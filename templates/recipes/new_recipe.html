@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2> Add a recipe</h2>
+<form action="">
+ <label for="recipe.name">Name of the recipe</label>
+ <input type="text" id="recipe.name" value="recipe.name" name="recipe.name">
+ <label for="recipe.description"> Total cooking time</label>
+ <input type="text" name="recipe.cooking_time" value="recipe.cooking_time" id="recipe.cooking_time">
+ <label for="recipe.description">Short description of the recipe</label>
+ <input type="text" name="recipe.description" id="recipe.description" value="recipe.description">
+ <label for="ingredient.name">ingredient.name</label>
+ <input type="text">
+ <label for="ingredient.volume????">ingredient.volume</label>
+ <input type="text">
+ <label for="recipe.instructions">Recipe Instructions</label>
+ <input type="text" name="recipe.instructions" id="recipe.instructions" value="recipe.instructions">
+ <label for="recipe.diet">Diet</label>
+ <input type="radio" name="recipe.diet" id="recipe.diet">
+ <label for="recipe.image"> Please insert web image link here</label>
+ <input type="text" name="recipe.image" id="recipe.image" value="recipe.image">
+<button type="submit">Submit</button>
+</form>
+{% endblock %}

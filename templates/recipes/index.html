@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    this it the recipes page
-
-<!-- <section class="filter-wrapper">
+    <div class="recipes-body">
+        <div class="all-recipes-body-content">
+    <aside>
+        <h4>Filter</h4>
+<section class="filter-wrapper">
+    
     <form action="post" class="filter-form">
         <div class="label-input">
         <label for="vegeterian">vegeterian</label>
@@ -18,19 +21,66 @@
         <input type="checkbox" id="dessert" value="dessert" name="dessert">
         </div>
     </form>
-</section> -->
 
-    <section class="recipe-wrapper">
+</section>
+<h4>filter by ingredients</h4>
+
+<section class="filter-wrapper">
+    
+    <form action="post" class="filter-form">
+        <div class="label-input">
+        <label for="vegeterian">ingredient</label>
+        <input type="checkbox" id="vegetarian" value="vegetarian" name="vegetarian">
+        </div>
+        <div class="label-input">
+        <label for="vegan">ingredient</label>
+        <input type="checkbox" id="vegan" value="vegan" name="vegan">
+        </div>
+        <div class="label-input">
+        <label for="dessert">ingredient</label>
+        <input type="checkbox" id="dessert" value="dessert" name="dessert">
+        </div>
+    </form>
+    
+</section>
+<h4>
+Filter by cooking time</h4>
+<section class="filter-wrapper">
+    
+    <form action="post" class="filter-form">
+        <div class="label-input">
+        <label for="vegeterian">less than 10 mins</label>
+        <input type="checkbox" id="vegetarian" value="vegetarian" name="vegetarian">
+        </div>
+        <div class="label-input">
+        <label for="vegan">less than 30 mins</label>
+        <input type="checkbox" id="vegan" value="vegan" name="vegan">
+        </div>
+        <div class="label-input">
+        <label for="dessert">less than 1 hour</label>
+        <input type="checkbox" id="dessert" value="dessert" name="dessert">
+        </div>
+    </form>
+
+</section>
+</aside>
+<div class="main-wrapper">
+    <section class="recipe-wrapper-inner">
         {% for recipe in recipes %}
             <a class="recipe-container" href="WRITE RECIPE ID IN HERE TO GO TO SINGLE RECIPE">
                 <div class="card-content">
                     <div class="recipe-image"> <img src="{{recipe.image}}" alt="image not loaded"></div>
                     <div class="recipe-name">{{recipe.name}}</div>
                     <div class="recipe-description">{{recipe.description}} </div>
-                    <div class="recipe-cooking_time"> <i class="fa fa-clock-o fa-2px"></i>{{recipe.cooking_time}}</div>
+                    <div class="recipe-cooking_time"> <i class="fa fa-clock-o fa-2px"></i>{{recipe.cooking_time}} {{recipe.diet}}</div>
+
                 </div>
             </a>
         {% endfor %}
     </section>
+    </div>
+</div>
+</div>
+</div>
 {% endblock %}    
 

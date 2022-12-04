@@ -9,3 +9,8 @@ recipes_blueprint = Blueprint("recipes", __name__)
 def recipes():
     recipes = recipe_repository.select_all()
     return render_template("recipes/index.html", recipes=recipes)
+
+@recipes_blueprint.route("/recipes/new")
+def new_recipe():
+    recipes = recipe_repository.select_all()
+    return render_template("recipes/new_recipe.html", recipes=recipes)
