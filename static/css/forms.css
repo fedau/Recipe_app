@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta&family=Roboto:ital,wght@0,100;1,400&family=Rubik&display=swap');
+body{
+    color: var(--blue);
+
+}
+
+.form-inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    width: 400px;
+    border-radius: 16px;
+    margin:auto
+
+
+
+}
+
+.button{
+    border-radius: 16px;
+    color: var(--blue);
+    width: 100px;
+    margin:auto
+
+    
+
+}
+
+.button:hover {
+    color: var(--blue);
+    background-color: var(--pink);
+    border-radius: 16px;
+
+}
