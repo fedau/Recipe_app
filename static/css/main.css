@@ -157,15 +157,19 @@ a{
     }
 .main-wrapper{
     overflow-y: auto;
+    width: 2000px;
+    padding: 15px;
+
+    /* background-color: aqua; */
 }
 
 aside{
     flex: 1 0 10%;
+    padding: 15px;
     /* background-color: #CE7777; */
 }
 
 .all-recipes-body-content{
     display: flex;
   height: 100%;
-  /* background-color: aqua; */
 }
