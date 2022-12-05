@@ -112,9 +112,10 @@ a{
     padding: 5px;
 }
 
-.recipe-image img{
-    height: auto; 
-    max-width: 100%;
+.recipe-image>img{
+    height: 180px; 
+    width: 250px;
+    object-fit: cover;
 }
 
 
