@@ -7,7 +7,7 @@ import repositories.recipe_repository as recipe_repository
 
 def save(recipe_ingredient):
     sql = "INSERT INTO recipe_ingredient (recipe_id, ingredient_id) VALUES (%s, %s) RETURNING id"
-    values = [recipe_ingredient.recipe.id, recipe_ingredient.ingredient.id]
+    values = [recipe_ingredient.recipe_id, recipe_ingredient.ingredient_id]
     results = run_sql(sql, values)
     recipe_ingredient.id = results[0]['id']
     return recipe_ingredient

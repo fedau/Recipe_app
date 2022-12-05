@@ -9,18 +9,32 @@
         <label for="name">Name of the recipe</label>
         <input type="text" id="name" name="name">
         <label for="description"> Total cooking time</label>
-        <input type="text" name="cooking_time"  id="cooking_time">
+        <input type="number" name="cooking_time"  id="cooking_time">
         <label for="description">Short description of the recipe</label>
         <input type="text" name="description" id="description" >
-        <label for="ingredient.name">ingredient.name</label>
+        {% for ingredient in ingredients %}
+        <div class="ingredient-input">
+            <label for="ingredient" name="{{ingredient.name}}">{{ingredient.name}} : {{ingredient.amount}}</label>
+            <input type="checkbox" id="{{ingredient.id}}" value="{{ingredient.name}}" name="{{ingredient.name}}">
+             
+        </div>
+            
+        {% endfor %}
+        <!-- <label for="ingredient.name">ingredient.name</label>
         <input type="text">
         <label for="ingredient.volume????">ingredient.volume</label>
-        <input type="text">
+        <input type="text"> -->
         <label for="instructions">Recipe Instructions</label>
-        <input type="text" name="instructions" id="instructions" >
+        <input type="text" name="instructions" id="instructions">
+<!-- 
+        <input type="radio" name="diet" id="vegetarian" value="vegetarian"> vegetarian ><br>
+        <input type="radio" name="diet" id="vegan" value="vegan"> vegan ><br>
+        <input type="radio" name="diet" id="dessert" value="dessert"> dessert ><br> -->
+
+
+
         <label for="diet">Diet</label>
-        <input type="radio" name="diet" id="diet" value="vegetarian">
-        <input type="radio" name="diet" id="diet">
+        <input type="text" name="diet" id="diet">
         <label for="image"> Please insert web image link here</label>
         <input type="text" name="image" id="image" >
         <button class="button" type="submit">Submit</button>
