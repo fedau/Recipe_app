@@ -12,6 +12,8 @@
         <input type="number" name="cooking_time"  id="cooking_time">
         <label for="description">Short description of the recipe</label>
         <input type="text" name="description" id="description" >
+        <label for="ingredient">Pick your ingredients and their amount</label>
+
         {% for ingredient in ingredients %}
         <div class="ingredient-input">
             <label for="ingredient" name="{{ingredient.name}}">{{ingredient.name}} : {{ingredient.amount}}</label>
@@ -22,11 +24,11 @@
         {% endfor %}
 
         <label for="instructions">Recipe Instructions</label>
-        <input type="text" name="instructions" id="instructions">
-
-        <input type="radio" name="diet" id="diet" value="vegetarian"> vegetarian <br>
-        <input type="radio" name="diet" id="diet" value="vegan"> vegan <br>
-        <input type="radio" name="diet" id="diet" value="dessert"> dessert <br>
+        <textarea name="instructions" id="instructions" cols="30" rows="7"></textarea>
+        <label for="diet"> Pick the type</label>
+        <div> vegetarian<input type="radio" name="diet" id="diet" value="vegetarian"> </div>
+        <div> vegan<input type="radio" name="diet" id="diet" value="vegan">  </div>
+        <div> dessert<input type="radio" name="diet" id="diet" value="dessert">  </div>
 
         <!-- <label for="diet">Diet</label>
         <input type="text" name="diet" id="diet"> -->

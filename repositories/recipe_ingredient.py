@@ -12,6 +12,18 @@ def save(recipe_ingredient):
     recipe_ingredient.id = results[0]['id']
     return recipe_ingredient
 
+# WHAT AM I DOINNGGGGGG
+
+def select(id):
+    recipe_ingredient = None
+    sql = "SELECT * FROM recipe_ingredients WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    if results:
+        result = results[0]
+        recipe_ingredient = Recipe_ingredient(result['recipe_id'], result['ingredient_id'], result['id'] )
+    return recipe_ingredient
+
 
 
 def select_all():
@@ -21,7 +33,19 @@ def select_all():
     for row in results:
         recipe = recipe_repository.select(row['recipe_id'])
         ingredient = ingredient_repository.select(row['ingredient_id'])
-        recipe_ingredient = Recipe_ingredient(recipe, ingredient, row['id'])
+        recipe_ingredient = Recipe_ingredient(recipe.id, ingredient.id, row['id'])
+        recipes_ingredients.append(recipe_ingredient)
+    return recipes_ingredients
+
+def select_all_by_recipe_id(id):
+    recipes_ingredients = []
+    sql = "SELECT * FROM recipe_ingredient WHERE recipe_id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+    for row in results:
+        recipe = recipe_repository.select(row['recipe_id'])
+        ingredient = ingredient_repository.select(row['ingredient_id'])
+        recipe_ingredient = Recipe_ingredient(recipe.id, ingredient.id, row['id'])
         recipes_ingredients.append(recipe_ingredient)
     return recipes_ingredients
 

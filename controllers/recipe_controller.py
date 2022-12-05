@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.recipes import Recipe
+from models.ingredients import Ingredient
 from models.recipe_ingredient import Recipe_ingredient
 import repositories.recipe_repository as recipe_repository
 import repositories.ingredient_repository as ingredient_repository
@@ -61,11 +62,23 @@ def save_recipe():
     return redirect("/recipes")
 
 # SHOW 1 RECIPE
-# GET '/recipes/<id>
+# # GET '/recipes/<id>
+@recipes_blueprint.route('/recipes/<int:id>')
+def show(id):
+    single_recipe = recipe_repository.select(id)
+    # ingredients = recipe_repository.ingredients(single_recipe)
+    recipe_ingredients = recipe_ingredient_repository.select_all_by_recipe_id(id)
+    ingredient_instances = []
+    for item in recipe_ingredients:
+        new_ingredient = ingredient_repository.select(item.ingredient_id)
+        ingredient_instances.append(new_ingredient)
+    # recipe = recipe_repository.select_all()
+    return render_template('recipes/show.html', single_recipe=single_recipe, ingredients=ingredient_instances)
 
 
 # EDIT RECIPE
 # GET '/recipes/<id>/edit'
+
 
 
 # UPDATE RECIPES

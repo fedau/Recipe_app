@@ -38,12 +38,26 @@ def delete_all():
 
 
 
+# def ingredients(recipe):
+#     ingredients = []
+#     sql = """SELECT ingredients.* FROM ingredients INNER JOIN recipe_ingredient ON recipe_ingredient.ingredient_id = ingredients.id WHERE recipe_id = %s"""
+#     values = [recipe.id]
+#     results = run_sql(sql, values)
+#     for row in results:
+#         ingredient = Ingredient(row['name'], row['amount'], row['id'])
+#         ingredients.append(ingredient)
+#     return ingredients
+
+
+
 def ingredients(recipe):
     ingredients = []
-    sql = """SELECT ingredients.* FROM ingredients INNER JOIN recipe_ingredient ON recipe_ingredient.ingredient_id = ingredients.id WHERE recipe_id = %s"""
-    values = [recipe.id]
+    sql = """SELECT ingredients.* FROM ingredients INNER JOIN recipe_ingredient ON recipe_ingredient.ingredient_id=ingredient.id WHERE recipe_id = %s"""
+    values= [recipe.id]
     results = run_sql(sql, values)
+  
     for row in results:
-        ingredient = Ingredient(row['name'], row['amount'], row['id'])
+        ingredient=Ingredient(row['name'], row['amount'], row['id'])
         ingredients.append(ingredient)
     return ingredients
+

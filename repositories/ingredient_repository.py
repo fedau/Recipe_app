@@ -19,6 +19,8 @@ def select_all():
         ingredients.append(ingredient)
     return ingredients
 
+
+
 def select(id):
     ingredient = None
     sql = "SELECT * FROM ingredients WHERE id = %s"
@@ -43,3 +45,5 @@ def recipes(ingredient):
         recipe = Recipe(row['name'], row['cooking_time'], row['description'], row['instructions'], row['diet'], row['image'], row['id'])
         recipes.append(recipe)
     return recipes
+
+

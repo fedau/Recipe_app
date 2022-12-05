@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="single-recipe-content">
+        <div class="recipe-image"> <img src="{{single_recipe.image}}" alt="image not loaded"></div>
+        <div class="single_recipe-name"><h2>{{single_recipe.name}}</h2></div>
+        <div class="single_recipe-description">{{single_recipe.description}} </div>
+        <div class="single-recipeinstructions">{{single_recipe.instructions}}</div>
+        <div class="single_recipe-cooking_time"> <i class="fa fa-clock-o fa-2px"></i>{{single_recipe.cooking_time}} </div>  
+        <div class="single-recipe-diet"></div>{{single_recipe.diet}}
+        
+        <div class="ingreedient-list-wrapper">
+        {% for ingredient in ingredients %}
+        <div class="ingredient-list-inner">
+         <ul>
+            <li>{{ingredient.name}} : {{ingredient.amount}} grams</li>
+         </ul>
+     </div>
+   
+        {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
