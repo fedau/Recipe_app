@@ -16,13 +16,13 @@
 
         <label for="instructions">Recipe Instructions</label>
         <textarea name="instructions" id="instructions" cols="30" rows="7">{{single_recipe.instructions}}</textarea>
+        <!-- RADIO BUTTONS -->
         <label for="diet"> Pick the type</label>
         <div> vegetarian<input type="radio" name="diet" id="diet" value="vegetarian" checked> </div>
         <div> vegan<input type="radio" name="diet" id="diet" value="vegan">  </div>
         <div> dessert<input type="radio" name="diet" id="diet" value="dessert">  </div>
+        <div> fish<input type="radio" name="diet" id="diet" value="fish">  </div>
 
-        <!-- <label for="diet">Diet</label>
-        <input type="text" name="diet" id="diet"> -->
         <label for="image"> Please insert web image link here</label>
         <input type="text" name="image" id="image" value="{{single_recipe.image}}" >
         <button class="button" type="submit">Submit</button>

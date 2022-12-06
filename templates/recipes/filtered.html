@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+filtered recipes
+    {% for recipe in filtered_recipes %}
+    <a class="recipe-container" href="/recipes/{{recipe.id}}">
+        <div class="card-content">
+            <div class="recipe-image"> <img src="{{recipe.image}}" alt="image not loaded"></div>
+            <div class="recipe-name">{{recipe.name}}</div>
+            <div class="recipe-description">{{recipe.description}} </div>
+            <div class="recipe-cooking_time"> <i class="fa fa-clock-o fa-2px"></i>{{recipe.cooking_time}} {{recipe.diet}}</div>
+
+        </div>
+    </a>
+        
+    {% endfor %}
+{% endblock %}

@@ -4,25 +4,32 @@
 <main>
     <div class="recipes-body">
         <div class="all-recipes-body-content">
+
+<!-- FILTER -->
     <aside>
         <h4>Filter</h4>
 <section class="filter-wrapper">
-    
-    <form action="post" class="filter-form">
+    <!-- form filter for diet -->
+    <form action="/recipes/filtered" method="post" class="filter-form">
         <div class="label-input">
-        <input type="checkbox" id="vegetarian" value="vegetarian" name="vegetarian">
-        <label for="vegeterian">vegeterian</label>
+        <input type="checkbox" id="diet" value="vegetarian" name="diet">
+        <label for="diet">vegetarian</label>
         </div>
         <div class="label-input">
-            <input type="checkbox" id="vegan" value="vegan" name="vegan">
-        <label for="vegan">vegan</label>
+            <input type="checkbox" id="diet" value="vegan" name="diet">
+        <label for="diet">vegan</label>
         </div>
         <div class="label-input">
-            <input type="checkbox" id="dessert" value="dessert" name="dessert">
-        <label for="dessert">dessert</label>
+            <input type="checkbox" id="diet" value="dessert" name="diet">
+        <label for="diet">dessert</label>
         </div>
+        <div class="label-input">
+            <input type="checkbox" id="diet" value="fish" name="diet">
+        <label for="diet">fish</label>
+        </div>
+        <button class="button" type="submit">Submit</button>
     </form>
-
+<!-- diet filter end -->
 </section>
 <h4>filter by ingredients</h4>
 
@@ -65,6 +72,9 @@ Filter by cooking time</h4>
 
 </section>
 </aside>
+<!-- END FILTER -->
+
+<!-- RECIPES -->
 <div class="main-wrapper">
     <section class="recipe-wrapper-inner">
         {% for recipe in recipes %}

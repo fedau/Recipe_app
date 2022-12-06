@@ -52,7 +52,7 @@ def save_recipe():
     for ingredient in all_ingredients:
         ingredient_picks[ingredient.name] = ingredient.id
         counter += 1
-    # ingredient_pick_names = list(ingredient_picks.values())
+
     all_form_data_keys = form_data.keys()
     for  key in all_form_data_keys:
         if key in ingredient_picks:
@@ -114,3 +114,20 @@ def update_recipe(id):
 def delete_recipe(id):
     recipe_repository.delete(id)
     return redirect('/recipes')
+
+@recipes_blueprint.route("/recipes/filtered", methods=['POST'])
+def filter_recipes():
+    form_data = request.form
+    filtered_recipe_list = []
+    recipes = recipe_repository.select_all()
+    for recipe in recipes:
+        if recipe.diet == form_data['diet']:
+            filtered_recipe_list.append(recipe)
+    return render_template("/recipes/filtered.html", filtered_recipes = filtered_recipe_list)
+        
+
+    # all_form_diet_keys = form_data.keys()
+    # for key in all_form_diet_keys:
+    #     if key in filtered_recipe_list:
+    #         for item in all_diets
+
