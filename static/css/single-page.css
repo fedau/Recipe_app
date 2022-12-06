@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta&family=Roboto:ital,wght@0,100;1,400&family=Rubik&display=swap');
+
+
+:root{
+    --blue: #222e44;
+    --whiteish: #f7efef;
+    --pink: #E8C4C4;
+    --pinklight:#edd0d0;
+    --peachy: #CE7777;
+    --lighterblue: #556177;
+    --lightblue: #404e66;
+
+}
+
+body{
+    background: var(--whiteish);
+    font-family: "Rubik", sans-serif;
+    color: var(--blue);
+   
+}
+
+
+.main-single {
+    padding: 30px 1rem;
+    min-width: fit-content;
+    /* width: 100%; */
+    display: flex;
+    justify-self: center;
+    
+ 
+   
+}
+
+/* LEFT SIDE IMAGE AND INGREDIENTS */
+
+.left-wrapper{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start; */
+    /* padding: 1rem;? */
+    min-width: 260px;
+
+}
+.recipe-image-single{
+/*    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; */
+    /* padding-bottom: 5rem; */
+
+}
+.recipe-image-single img{
+    /* height: auto; 
+    width: 100%; */
+    height: 180px; 
+    width: 250px;
+    object-fit: cover;
+
+}
+
+.ingredient-list-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 1rem;
+}
+
+.ingredient-list-inner ul li{
+    padding: 0%;
+    margin: 0%;
+}
+
+/* CENTER NAME, DESCRIPTION, INSTRUCTIONS */
+
+
+.center-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-top: 0%;
+    margin-top: 0%;
+   
+}
+
+.single_recipe-name{
+    font-size: 24px;
+    padding: 0%;
+    margin: 0%;
+}
+
+.single_recipe-description{
+    color: #404e66;
+    padding: 1rem;
+}
+
+.single-recipeinstructions{
+    line-height: 20px;
+}
+
+.single_recipe-cooking_time{
+    padding: 1rem;
+}
+/* RIGHT? EDIT AND DELETE BUTTONS */
+
+.right-wrapper{
+    max-width: 120px;
+  text-align: center;
+  margin: right 0;
+
+    /* display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+
+*/
+}
+
+.button-single {
+    border-radius: 16px;
+    color: var(--blue);
+    width: 100px;
+    margin:auto;
+    background-color: var(--whiteish);
+    border: 2px solid var(--peachy);
+    margin: 5px;
+
+
+
+}
+
+.button-single:hover {
+    color: var(--blue);
+    background-color: var(--pink);
+    border-radius: 16px;
+
+
+}
+

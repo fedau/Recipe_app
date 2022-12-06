@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<main>
     <div class="recipes-body">
         <div class="all-recipes-body-content">
     <aside>
@@ -82,5 +83,20 @@ Filter by cooking time</h4>
 </div>
 </div>
 </div>
+</main>
 {% endblock %}    
 
+
+
+<!-- trying to write a filter function -->
+<!-- {% for recipe in recipes %}
+return recipe.id where form_data = checked
+
+selected_recipes = []
+filtered_result = form_data['recipe.diet']
+selected_recipes.append(filtered_result.id)
+
+for recipe in selected_recipes
+recipe.name
+    
+{% endfor %} -->

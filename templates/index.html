@@ -2,4 +2,28 @@
 
 {% block content %}
 
+
+
+<div class="mainpage-header">
+
+<h2>Welcome to "What's on the menu"</h2>
+<h3>Where you can find recipes without their life stories</h3>
+</div>
+<div class="mainpage-recipes"> 
+<!-- <div class="main-wrapper"> -->
+    <section class="recipe-wrapper-inner">
+        {% for recipe in recipes %}
+            <a class="recipe-container" href="/recipes/{{recipe.id}}">
+                <div class="card-content">
+                    <div class="recipe-image"> <img src="{{recipe.image}}" alt="image not loaded"></div>
+                    <div class="recipe-name">{{recipe.name}}</div>
+                    <div class="recipe-description">{{recipe.description}} </div>
+                    <div class="recipe-cooking_time"> <i class="fa fa-clock-o fa-2px"></i>{{recipe.cooking_time}} {{recipe.diet}}</div>
+
+                </div>
+            </a>
+        {% endfor %}
+    </section>
+    <!-- </div> -->
+</div>
 {% endblock %}

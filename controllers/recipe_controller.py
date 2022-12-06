@@ -13,8 +13,13 @@ recipes_blueprint = Blueprint("recipes", __name__)
 
 # INDEX
 # GET /RECIPES
-@recipes_blueprint.route("/recipes")
+@recipes_blueprint.route("/")
 def recipes():
+    recipes = recipe_repository.select_all()
+    return render_template("/index.html", recipes=recipes)
+
+@recipes_blueprint.route("/recipes")
+def recipes_filter():
     recipes = recipe_repository.select_all()
     return render_template("recipes/index.html", recipes=recipes)
 
@@ -73,17 +78,39 @@ def show(id):
         new_ingredient = ingredient_repository.select(item.ingredient_id)
         ingredient_instances.append(new_ingredient)
     # recipe = recipe_repository.select_all()
-    return render_template('recipes/show.html', single_recipe=single_recipe, ingredients=ingredient_instances)
+    return render_template('/recipes/show.html', single_recipe=single_recipe, ingredients=ingredient_instances)
 
 
 # EDIT RECIPE
 # GET '/recipes/<id>/edit'
+@recipes_blueprint.route('/recipes/<int:id>/edit')
+def edit_recipes(id):
+    recipe = recipe_repository.select(id)
+    return render_template('/recipes/edit.html', single_recipe=recipe)
 
 
 
 # UPDATE RECIPES
 # POST '/recipes/<id>' (would normally be PUT)
+@recipes_blueprint.route("/recipes/<int:id>", methods=["POST"])
+def update_recipe(id):
+    form_data = request.form
+    recipe_name = form_data['name']
+    recipe_description = form_data['description']
+    recipe_cooking_time = form_data['cooking_time']
+    recipe_instructions = form_data['instructions']
+    recipe_image = form_data['image']
+    recipe_diet = form_data['diet']
+    
+    updated_recipe = Recipe(recipe_name, recipe_cooking_time, recipe_description, recipe_instructions, recipe_diet, recipe_image, id)
+    recipe_repository.update(updated_recipe)    
+    return redirect(f"/recipes/{updated_recipe.id}")
 
 
 # DELETE RECIPES
 # DELETE '/recipes/<id>/delete'
+
+@recipes_blueprint.route("/recipes/<id>/delete", methods=['POST'])
+def delete_recipe(id):
+    recipe_repository.delete(id)
+    return redirect('/recipes')

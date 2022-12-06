@@ -1,6 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta&family=Roboto:ital,wght@0,100;1,400&family=Rubik&display=swap');
+:root{
+    --blue: #222e44;
+    --whiteish: #f7efef;
+    --pink: #E8C4C4;
+    --pinklight:#edd0d0;
+    --peachy: #CE7777;
+    --lighterblue: #556177;
+    --lightblue: #404e66;
+
+}
+
+
 body{
     color: var(--blue);
+    background: var(--whiteish);
+    font-family: "Rubik", sans-serif;
 
 }
 
@@ -21,7 +35,9 @@ body{
     border-radius: 16px;
     color: var(--blue);
     width: 100px;
-    margin:auto
+    margin:auto;
+    background-color: var(--whiteish);
+
 
     
 
