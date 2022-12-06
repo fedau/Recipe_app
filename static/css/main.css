@@ -2,7 +2,7 @@
 
 
 :root{
-    --blue: #222e44;
+    --blue: #2b3a55;
     --whiteish: #f7efef;
     --pink: #E8C4C4;
     --pinklight:#edd0d0;
@@ -136,6 +136,8 @@ a{
     padding: 10px;
     border: 1px solid #D5D9EB;
     gap: 16px; 
+    min-width: 200px;
+
  }
 .filter-form{
     display: flex;
@@ -144,7 +146,13 @@ a{
     flex: 5%;
     flex-grow: 0;
     margin-right: auto;
+
     
+}
+
+.filter-titles>h4{
+    padding: 0%;
+    margin: 2px;
 }
 
 .label-input{
@@ -170,6 +178,9 @@ a{
 
 aside{
     flex: 1 0 10%;
+    min-width: 230px;
+
+    width: 200px;
     padding: 15px;
     /* background-color: #CE7777; */
 }

@@ -21,7 +21,8 @@ def recipes():
 @recipes_blueprint.route("/recipes")
 def recipes_filter():
     recipes = recipe_repository.select_all()
-    return render_template("recipes/index.html", recipes=recipes)
+    ingredients = ingredient_repository.select_all()
+    return render_template("recipes/index.html", recipes=recipes, ingredients=ingredients)
 
 
 # NEW RECIPE
@@ -86,7 +87,9 @@ def show(id):
 @recipes_blueprint.route('/recipes/<int:id>/edit')
 def edit_recipes(id):
     recipe = recipe_repository.select(id)
-    return render_template('/recipes/edit.html', single_recipe=recipe)
+    ingredients = ingredient_repository.select_all()
+    recipe_ingredient = [recipe_ingredient.ingredient_id for recipe_ingredient in recipe_ingredient_repository.select_all_by_recipe_id(id)]
+    return render_template('/recipes/edit.html', single_recipe=recipe, ingredients=ingredients, recipe_ingredient=recipe_ingredient)
 
 
 
@@ -101,6 +104,16 @@ def update_recipe(id):
     recipe_instructions = form_data['instructions']
     recipe_image = form_data['image']
     recipe_diet = form_data['diet']
+
+    # get from form data ingredients that are picked (use getlist())
+
+    # get the get from recipe_ingredien_repository before editing (to see what ingredients were alresdy ticked)
+
+    # generate list of ingredients that are no longer ticked in the form data but were ticked in the reposory query and delete from recipe_ingredients table
+
+    # generate a list of ingredients that are now ticked and werent before and add these to the recipes table
+
+    # see that everything is still the same if not changed 
     
     updated_recipe = Recipe(recipe_name, recipe_cooking_time, recipe_description, recipe_instructions, recipe_diet, recipe_image, id)
     recipe_repository.update(updated_recipe)    
@@ -118,16 +131,21 @@ def delete_recipe(id):
 @recipes_blueprint.route("/recipes/filtered", methods=['POST'])
 def filter_recipes():
     form_data = request.form
-    filtered_recipe_list = []
+    filtered_recipe_list = set()
+    # filtered_ingredients = []
+    recipe_ingredients = recipe_ingredient_repository.select_all()
     recipes = recipe_repository.select_all()
+    recipe_lookup = {recipe.id: recipe for recipe in recipes}
     for recipe in recipes:
-        if recipe.diet == form_data['diet']:
-            filtered_recipe_list.append(recipe)
-    return render_template("/recipes/filtered.html", filtered_recipes = filtered_recipe_list)
-        
+        if recipe.diet in form_data.getlist('diet'):
+            filtered_recipe_list.add(recipe)
 
-    # all_form_diet_keys = form_data.keys()
-    # for key in all_form_diet_keys:
-    #     if key in filtered_recipe_list:
-    #         for item in all_diets
+    for recipe_ingredient in recipe_ingredients:
+        if str(recipe_ingredient.ingredient_id) in form_data.getlist('ingredient'):
+            filtered_recipe_list.add(recipe_lookup[recipe_ingredient.recipe_id])
+
+
+
+
+    return render_template("/recipes/filtered.html", filtered_recipes = list(filtered_recipe_list))
 

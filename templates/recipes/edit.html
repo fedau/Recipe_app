@@ -12,7 +12,15 @@
         <input type="number" name="cooking_time"  id="cooking_time" value="{{single_recipe.cooking_time}}">
         <label for="description">Short description of the recipe</label>
         <input type="text" name="description" id="description" value="{{single_recipe.description}}" >
-      
+<!--       
+        {% for ingredient in ingredients %}
+        <div class="ingredient-input">
+            <label for="ingredient" name="{{ingredient.name}}">{{ingredient.name}} : {{ingredient.amount}}</label>
+            <input type="checkbox" id="{{ingredient.id}}" value="{{ingredient.name}}" name="{{ingredient.name}}" {% if ingredient.id in recipe_ingredient %} checked {% endif %}>
+             
+        </div>
+            
+        {% endfor %} -->
 
         <label for="instructions">Recipe Instructions</label>
         <textarea name="instructions" id="instructions" cols="30" rows="7">{{single_recipe.instructions}}</textarea>
