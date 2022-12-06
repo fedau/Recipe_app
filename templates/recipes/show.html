@@ -1,39 +1,48 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block content %}
 
-{% block content %}
 <div class="main-single">
-
-<div class="left-wrapper">
-<div>
-    <div class="recipe-image-single"> <img src="{{single_recipe.image}}" alt="image not loaded"></div>
-</div>    
-    <div class="ingredient-list-wrapper">
-        {% for ingredient in ingredients %}
-            <div class="ingredient-list-inner">
-         <ul>
-            <li>{{ingredient.name}} : {{ingredient.amount}} grams</li>
-         </ul>  
+  <div class="main-inner">
+    <div class="left-wrapper">
+      <div>
+        <div class="recipe-image-single">
+          <img src="{{single_recipe.image}}" alt="image not loaded" />
         </div>
-        {% endfor %} 
+      </div>
+      <div class="ingredient-list-wrapper">
+        {% for ingredient in ingredients %}
+        <div class="ingredient-list-inner">
+          <ul>
+            <li>{{ingredient.name}} : {{ingredient.amount}} grams</li>
+          </ul>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="right-wrapper">
+        <div class="button-single">
+          <a href="/recipes/{{single_recipe.id}}/edit">Edit</a>
+        </div>
+  
+        <div class="b">
+          <form action="/recipes/{{ single_recipe.id }}/delete" method="POST">
+            <input class="button-single" type="submit" value="delete"  /> <i class="fa-solid fa-trash"></i>
+          </form>
+        </div>
+      </div>
     </div>
-</div>
     <div class="center-wrapper">
-        <div class="single_recipe-name"><h2>{{single_recipe.name}}</h2></div>
-        <div class="single_recipe-description">{{single_recipe.description}} </div>
-        <div class="single-recipeinstructions">{{single_recipe.instructions}}</div>
-        <div class="single_recipe-cooking_time"> <i class="fa fa-clock-o fa-2px"></i>{{single_recipe.cooking_time}} </div>  
-        <div class="single-recipe-diet"></div>{{single_recipe.diet}}
-</div>    
-
-<div class="right-wrapper">
-    <div class="button-single"> <a href="/recipes/{{single_recipe.id}}/edit">Edit</a></div>
-        
-    
-        <div class="b"> <form action="/recipes/{{ single_recipe.id }}/delete" method="POST">
-            <input class="button-single" type="submit" value="delete" />
-          </form></div>
-        
+      <div class="single_recipe-name"><h2>{{single_recipe.name}}</h2></div>
+      <div class="single_recipe-description">{{single_recipe.description}}</div>
+      <div class="single-recipeinstructions">
+        {{single_recipe.instructions}}
+      </div>
+      <div class="single_recipe-cooking_time">
+        <i class="fa fa-clock-o fa-2px"></i>{{single_recipe.cooking_time}}
+      </div>
+      <div class="single-recipe-diet"></div>
+      {{single_recipe.diet}}
     </div>
 
+    
+  </div>
 </div>
 {% endblock %}

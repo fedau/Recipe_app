@@ -109,7 +109,8 @@ def update_recipe(id):
 
     # get the get from recipe_ingredien_repository before editing (to see what ingredients were alresdy ticked)
 
-    # generate list of ingredients that are no longer ticked in the form data but were ticked in the reposory query and delete from recipe_ingredients table
+    # generate list of ingredients that are no longer ticked in the form data but were ticked in the reposory query 
+    # and delete from recipe_ingredients table
 
     # generate a list of ingredients that are now ticked and werent before and add these to the recipes table
 
@@ -130,22 +131,22 @@ def delete_recipe(id):
 
 @recipes_blueprint.route("/recipes/filtered", methods=['POST'])
 def filter_recipes():
+    ingredients = ingredient_repository.select_all()
     form_data = request.form
     filtered_recipe_list = set()
-    # filtered_ingredients = []
     recipe_ingredients = recipe_ingredient_repository.select_all()
     recipes = recipe_repository.select_all()
     recipe_lookup = {recipe.id: recipe for recipe in recipes}
+    selected_filter_diet = form_data.getlist('diet')
+    selected_filter_ingredients = [int(i) for i in form_data.getlist('ingredient')]
     for recipe in recipes:
+
         if recipe.diet in form_data.getlist('diet'):
             filtered_recipe_list.add(recipe)
 
     for recipe_ingredient in recipe_ingredients:
-        if str(recipe_ingredient.ingredient_id) in form_data.getlist('ingredient'):
+        if recipe_ingredient.ingredient_id in selected_filter_ingredients:
             filtered_recipe_list.add(recipe_lookup[recipe_ingredient.recipe_id])
 
-
-
-
-    return render_template("/recipes/filtered.html", filtered_recipes = list(filtered_recipe_list))
+    return render_template("/recipes/index.html", recipes = list(filtered_recipe_list), ingredients=ingredients, selected_filter_diet=selected_filter_diet, selected_filter_ingredients=selected_filter_ingredients )
 

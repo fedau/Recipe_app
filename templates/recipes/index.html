@@ -12,21 +12,27 @@
     <!-- form filter for diet -->
     <div class="filter-titles">
     <h4>Filter by diet</h4></div>
+
+   <!-- {% if "vegetarian" in selected_filter_diet  %}
+     return checked
+   {% endif %} -->
+
+
     <form action="/recipes/filtered" method="post" class="filter-form">
         <div class="label-input">
-        <input type="checkbox" id="diet" value="vegetarian" name="diet">
+        <input type="checkbox" id="diet" value="vegetarian" name="diet"  {{ "checked" if "vegetarian" in selected_filter_diet  }}>
         <label for="diet">vegetarian</label>
         </div>
         <div class="label-input">
-            <input type="checkbox" id="diet" value="vegan" name="diet">
+            <input type="checkbox" id="diet" value="vegan" name="diet" {{ "checked" if "vegan" in selected_filter_diet  }} >
         <label for="diet">vegan</label>
         </div>
         <div class="label-input">
-            <input type="checkbox" id="diet" value="dessert" name="diet">
+            <input type="checkbox" id="diet" value="dessert" name="diet" {{ "checked" if "dessert" in selected_filter_diet  }}>
         <label for="diet">dessert</label>
         </div>
         <div class="label-input">
-            <input type="checkbox" id="diet" value="fish" name="diet">
+            <input type="checkbox" id="diet" value="fish" name="diet" {{ "checked" if "fish" in selected_filter_diet  }}>
         <label for="diet">fish</label>
         </div>
         <div class="filter-titles">
@@ -34,8 +40,7 @@
         
         {% for ingredient in ingredients %}
         <div class="ingredient-input">
-            <input type="checkbox" id="{{ingredient.id}}" value="{{ingredient.id}}"    name="ingredient">
-
+            <input type="checkbox" id="{{ingredient.id}}" value="{{ingredient.id}}"    name="ingredient" {{ "checked" if ingredient.id in selected_filter_ingredients }}>
             <label for="{{ingredient.id}}" name="{{ingredient.name}}">{{ingredient.name}} : {{ingredient.amount}}</label>
              
         </div>
