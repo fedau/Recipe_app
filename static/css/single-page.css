@@ -126,17 +126,34 @@ body{
 }
 
 .button-single {
+
+    border-radius: 16px;
+    padding: 7px;
+    text-decoration: none;
+    color: var(--blue);
+    background-color: var(--whiteish);
+    border: 2px solid var(--peachy);
+    margin: 5px;
+}
+
+.button-single>a{
+    color: var(--blue);
+    width: 100px;
+}
+
+
+/* .button>a{
     border-radius: 16px;
     color: var(--blue);
     width: 100px;
     margin:auto;
     background-color: var(--whiteish);
+    color: var(--blue);
+    /* font-size: small; */
+    /* width: 70px; */
+    /* background-color: var(--whiteish);
     border: 2px solid var(--peachy);
-    margin: 5px;
-
-
-
-}
+    margin: 5px; */
 
 .button-single:hover {
     color: var(--blue);

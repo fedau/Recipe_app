@@ -122,6 +122,10 @@ a{
     object-fit: cover;
 }
 
+.homepage-image>img{
+    width: 100%;
+
+}
 
 
 /* FILTER STYLING */
@@ -137,6 +141,7 @@ a{
     border: 1px solid #D5D9EB;
     gap: 16px; 
     min-width: 200px;
+    position: sticky;
 
  }
 .filter-form{
@@ -146,6 +151,7 @@ a{
     flex: 5%;
     flex-grow: 0;
     margin-right: auto;
+    position: sticky;
 
     
 }
@@ -171,7 +177,7 @@ a{
 .main-wrapper{
     overflow-y: auto;
     width: 2000px;
-    padding: 15px;
+    padding: 15px; 
 
     /* background-color: aqua; */
 }
@@ -179,7 +185,8 @@ a{
 aside{
     flex: 1 0 10%;
     min-width: 230px;
-
+    /* position: sticky;
+    left: 0; */
     width: 200px;
     padding: 15px;
     /* background-color: #CE7777; */

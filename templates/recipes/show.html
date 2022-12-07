@@ -18,13 +18,13 @@
         {% endfor %}
       </div>
       <div class="right-wrapper">
-        <div class="button-single">
-          <a href="/recipes/{{single_recipe.id}}/edit">Edit</a>
+        <div class="">
+          <button class="button-single"> <a href="/recipes/{{single_recipe.id}}/edit"> Edit <i class=" fa fa-solid fa-pencil"></i> </a> </button>
         </div>
   
         <div class="b">
           <form action="/recipes/{{ single_recipe.id }}/delete" method="POST">
-            <input class="button-single" type="submit" value="delete"  /> <i class="fa-solid fa-trash"></i>
+           <button class="button-single"> Delete <i class=" fa fa-solid fa-trash"></i> </button>
           </form>
         </div>
       </div>

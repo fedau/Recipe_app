@@ -37,10 +37,6 @@ body{
     width: 100px;
     margin:auto;
     background-color: var(--whiteish);
-
-
-    
-
 }
 
 .button:hover {
