@@ -20,7 +20,7 @@ body{
 
 main{
     padding: 60px 1rem;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     margin-left: 0px;
     padding-left: 0px;
 
@@ -77,6 +77,9 @@ a{
     flex-direction: row;
     justify-content: center;
     gap: 16px;
+    width: 100%;
+    flex: 20%;
+
 
 }
 
@@ -176,7 +179,7 @@ a{
     }
 .main-wrapper{
     overflow-y: auto;
-    width: 2000px;
+    width: 100%;
     padding: 15px; 
 
     /* background-color: aqua; */

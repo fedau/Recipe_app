@@ -19,6 +19,7 @@
 
 
     <form action="/recipes/filtered" method="post" class="filter-form">
+        <button class="button" type="submit">Submit</button>
         <div class="label-input">
         <input type="checkbox" id="diet" value="vegetarian" name="diet"  {{ "checked" if "vegetarian" in selected_filter_diet  }}>
         <label for="diet">vegetarian</label>
@@ -45,7 +46,7 @@
              
         </div>
         {% endfor %}
-        <button class="button" type="submit">Submit</button>
+        
     </form>
 <!-- diet filter end -->
 </section>
@@ -71,7 +72,9 @@
 </div>
 </div>
 </div>
+
 </main>
+
 {% endblock %}    
 
 

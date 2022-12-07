@@ -107,15 +107,19 @@ def update_recipe(id):
 
     # get from form data ingredients that are picked (use getlist())
 
-    # get the get from recipe_ingredien_repository before editing (to see what ingredients were alresdy ticked)
+    # get the get from recipe_ingredient_repository before editing (to see what ingredients were already ticked)
 
-    # generate list of ingredients that are no longer ticked in the form data but were ticked in the reposory query 
+    # generate list of ingredients that are no longer ticked in the form data but were ticked in the repository query 
     # and delete from recipe_ingredients table
 
-    # generate a list of ingredients that are now ticked and werent before and add these to the recipes table
+    # generate a list of ingredients that are now ticked and weren't before and add these to the recipes table
 
     # see that everything is still the same if not changed 
     
+
+
+
+
     updated_recipe = Recipe(recipe_name, recipe_cooking_time, recipe_description, recipe_instructions, recipe_diet, recipe_image, id)
     recipe_repository.update(updated_recipe)    
     return redirect(f"/recipes/{updated_recipe.id}")
